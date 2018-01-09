@@ -1,0 +1,525 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+       
+      <div class="col-md-4" id="main"  style="width: 700px;height:500px;"></div>
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <!--<div id="main" style="width: 500px;height:300px;"></div>-->
+   
+      </div>
+      <script>
+
+
+</script>
+      
+
+   <!-- </div>-->
+
+    <div class="col-md-4">
+      <h1>在线选课系统</h1>
+      <p>这个样本系统是基于国科大研究生课程(高级软件工程)开发的项目,目的是帮助入门者学习RoR(Ruby on Rails),这是根据基础项目增加了适当的功能后的版本</p>
+      <p>主要功能包括:成绩录入、课程统计、学生课表、选课列表</p>
+      <ul>
+        <li class="text-danger">
+          组内成员：孙明鑫、刘慧铮
+        </li>
+      </ul>
+
+    </div>
+    <h4 class="text-center">课程推荐列表</h4>
+    
+<!--    <div class="input-group" >-->
+        
+<!--        <%= form_tag search_path, method: 'get', role: "search" do %>-->
+<!--            <div class="input-group">-->
+<!--              <%= text_field_tag 'query', params[:query], class: "form-control input", placeholder: "请输入课程名称" %>-->
+<!--              <div class="input-group-btn">-->
+<!--                <button class="btn btn-default btn" type="submit"><i class="glyphicon glyphicon-search"></i>-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--        <% end %>-->
+        
+<!--<input type="text" class="form-control input-lg" placeholder="请输入需要检索的课程名"><span class="input-group-addon btn">搜索</span>-->
+<!--    </div>-->
+
+    
+<!--     <% unless params[:query].blank? %>-->
+<!--        <div class="row">-->
+<!--          <div class="col-sm-6">-->
+<!--            <text class="text-danger">搜索结果显示:-->
+<!--              <mark><%= params[:query] %></mark>-->
+<!--            </text>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <hr>-->
+<!--    <% end %>-->
+    
+<!--<table class="table table-responsive table-condensed table-hover">-->
+<!--	<thead>-->
+<!--		<tr>-->
+<!--			<th>编号</th>-->
+<!--			<th>名称</th>-->
+<!--			<th>课程类型</th>-->
+<!--		</tr>-->
+<!--	</thead>-->
+<!--	<tbody>-->
+<!--<% unless params[:query].blank? %>-->
+<!--	<% @courses.each do |course| %>-->
+<!--          <tr>-->
+<!--            <td>-->
+<!--              <text style="font-size: small"><%= course.course_code %></text>-->
+<!--            </td>-->
+
+<!--            <td>-->
+<!--              <text style="font-size: small"><%= course.name %></text>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <text style="font-size: small"><%= course.course_type %></text>-->
+<!--            </td>-->
+
+<!--          </tr>-->
+<!--      <% end %>-->
+<!-- <% end %>-->
+<!--      </tbody>-->
+	<!--<tbody>
+<!--		<tr>-->
+<!--			<td><a href="#">091M4001H</a></td>-->
+<!--			<td>计算机体系结构</td>-->
+<!--			<td>胡伟武</td>-->
+<!--		</tr>-->
+<!--	</tbody>-->
+<!--</table>-->
+
+
+
+<div class="col-md-4" >
+  <table class="table table-responsive table-condensed table-hover">
+      <thead>
+      <tr>
+        <th>课程名</th>
+        <th>学分</th>
+        <th>类别</th>
+        <th>时间</th>
+        
+      </tr>
+      </thead>
+      <tbody id="recommend">
+          <tr>
+            <td>
+              <text style="font-size: small">计算机体系结构</text>
+            </td>
+          </tr>
+
+      </tbody>
+    </table>
+
+    </div>
+    
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="alert alert-info text-center">
+        选课情况图表:
+      </div>
+    </div>
+
+  </div>
+
+
+  <!--<div class="row">
+    <div class="col-md-4">
+      <h2>Bootstrap</h2>
+      <p>Bootstrap，来自 Twitter，是目前很受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷. 它由Twitter的设计师Mark
+        Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。</p>
+      <a class="btn btn-info" href="http://www.w3schools.com/bootstrap/">More Info</a>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Javascript/CSS</h2>
+      <p>JavaScript一种直译式脚本语言,广泛用于客户端的脚本语言,是一种动态类型、弱类型、基于原型的语言，内置支持类型，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。CSS
+        (Cascading Style Sheets)是一种用来表现HTML样式的样式语言,能够真正做到网页表现与内容分离。
+      </p>
+      <a class="btn btn-info" href="http://www.runoob.com/js/js-tutorial.html">More Info</a>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Rails Framework</h2>
+      <p>Rails基于MVC（模型- 视图- 控制器）设计模式。从视图中的Ajax应用，到控制器中的访问请求和反馈，到封装数据库的模型，Rails
+        为你提供一个纯Ruby的开发环境,它基于一种计算机软件语言Ruby,给程序开发人员提供了强大的框架支持。Rails结合了PHP体系的优点（快速开发）和Java体系的优点（程序规整）</p>
+      <a class="btn btn-info" href="http://guides.ruby-china.org/">More Info</a>
+    </div>-->
+      <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    
+  <div class="row-md-12">
+    <div class="col-md-6">
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main2" style="width: 500px;height:450px;"></div>
+      </div>
+     
+      <div class="col-md-6">
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main3" style="width: 450px;height:450px;"></div>
+      </div> 
+      
+    </div>
+     <script type="text/javascript">
+     
+        
+     
+      $.ajax({
+          type: "GET",
+          url: "<%= showdata_url %>",
+          dataType: 'text',
+          success: function (data) {
+            
+            var course = eval("(" + data + ")");  
+            
+            
+            
+            var command = "";
+            //获取6个随机数
+            for(var i=0;i<6;i++)
+            {
+                //生成随机数
+                var random_number = Math.floor(Math.random()*course.length);
+               command += "<tr><td><text style='font-size: small'>"+course[random_number].name+"</text></td>"+
+               "<td><text style='font-size: small'>"+course[random_number].credit+"</text></td>"+
+               "<td><text style='font-size: small'>"+course[random_number].course_type+"</text></td>"+
+               "<td><text style='font-size: small'>"+course[random_number].course_time+"</text></td>"+
+               +"</tr>"
+                //获取随机数所在课程信息
+                
+            }
+            
+             //获取tbodyid
+             $("#recommend").html(command);
+            
+            
+            
+            //计算学科分值分布
+            var arrayObj = new Array();　//创建一个数组存储分数
+            //初始化
+            for(var i=0;i<7;i++)
+            {
+                arrayObj[i] = 0;
+            }
+            
+            for(var i=0;i<course.length;i++)
+            {
+                var temp = parseInt(course[i].credit.substring(3));
+                if(temp==1.0) arrayObj[0]++;
+                else if(temp==1.5) arrayObj[1]++;
+                else if(temp==2.0) arrayObj[2]++;
+                else if(temp==2.5) arrayObj[3]++;
+                else if(temp==3.0) arrayObj[4]++;
+                else if(temp==3.5) arrayObj[5]++;
+                else arrayObj[6]++;
+            }
+            // alert(arrayObj);
+            // 放入main中
+            var main_dataAxis = ['1.0学分', '1.5', '2.0学分', '2.5', '3.0学分', '3.5', '4.0'];
+
+            var main_data = arrayObj;
+            main(main_dataAxis,main_data);
+            
+            //统计核心课分布
+            var typeObj = new Array();　//创建一个数组存储类别数目
+            //初始化
+            for(var i=0;i<6;i++)
+            {
+                typeObj[i] = 0;
+            }
+            //
+            for(var i=0;i<course.length;i++)
+            {
+                if(course[i].course_type=="一级学科核心课") typeObj[0]++;
+                else if(course[i].course_type=="专业核心课") typeObj[1]++;
+                else if(course[i].course_type=="专业普及课") typeObj[2]++;
+                else if(course[i].course_type=="专业研讨课") typeObj[3]++;
+                else if(course[i].course_type=="公共选修课") typeObj[4]++;
+                else typeObj[5]++;
+            }
+            // alert(typeObj);
+            var course_type = [
+                    {value:typeObj[0], name:'一级学科核心课'},
+                    {value:typeObj[1], name:'专业核心课'},
+                    {value:typeObj[2], name:'专业普及课'},
+                    {value:typeObj[3], name:'专业研讨课'},
+                    {value:typeObj[4], name:'公共选修课'},
+                    {value:typeObj[5], name:'一级学科普及课'}
+                    
+                ];
+            //放入main2
+            main2(course_type);
+            
+            
+            //课程时间图
+            var timeObj = new Array();　//创建一个数组存储类别数目
+            for(var i=0;i<5;i++)
+            {
+                timeObj[i] = 0;
+            }
+            for(var i=0;i<course.length;i++)
+            {
+                if(course[i].course_time.indexOf("一")>0) timeObj[0]++;
+                else if(course[i].course_time.indexOf("二")>0) timeObj[1]++;
+                else if(course[i].course_time.indexOf("三")>0) timeObj[2]++;
+                else if(course[i].course_time.indexOf("四")>0) timeObj[3]++;
+                else timeObj[4]++;
+            }
+            // alert(timeObj);
+            var course_date = [
+                    {value: timeObj[0], name:'周一'},
+                    {value: timeObj[1], name:'周二'},
+                    {value: timeObj[2], name:'周三'},
+                    {value: timeObj[3], name:'周四'},
+                    {value: timeObj[4], name:'周五'}
+                ];
+                
+            //填入main3
+            main3(course_date);
+            
+          },
+           error: function () {
+            alert('error')
+          },
+          timeout: function () {
+            alert('time out')
+          }
+      });
+   
+    
+    
+    
+    
+    function main(dataAxis,data)
+    {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+    
+    var yMax = 15;
+    var dataShadow = [];
+    
+    for (var i = 0; i < data.length; i++) {
+        dataShadow.push(yMax);
+    }
+    
+    option = {
+        title: {
+            text: '学分分值统计图',
+            subtext: '总的学科分布统计图'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "学分分值 <br/>{b}学分 : {c} 门"
+        },
+        legend: {
+                data:['课程学分统计']
+            },
+        xAxis: {
+            data: dataAxis,
+            axisLabel: {
+                inside: true,
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            z: 10
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#999'
+                }
+            }
+        },
+        dataZoom: [
+            {
+                type: 'inside'
+            }
+        ],
+        series: [
+            { // For shadow
+                type: 'bar',
+                itemStyle: {
+                    normal: {color: 'rgba(0,0,0,0.05)'}
+                },
+                barGap:'-100%',
+                barCategoryGap:'40%',
+                data: dataShadow,
+                animation: false
+            },
+            {
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#83bff6'},
+                                {offset: 0.5, color: '#188df0'},
+                                {offset: 1, color: '#188df0'}
+                            ]
+                        )
+                    },
+                    emphasis: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#2378f7'},
+                                {offset: 0.7, color: '#2378f7'},
+                                {offset: 1, color: '#83bff6'}
+                            ]
+                        )
+                    }
+                },
+                data: data
+            }
+        ]
+    };
+
+    // Enable data zoom when user click bar.
+    var zoomSize = 6;
+    myChart.on('click', function (params) {
+        console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+        myChart.dispatchAction({
+            type: 'dataZoom',
+            startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+            endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+        });
+    });
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+}
+    
+    
+    // 基于准备好的dom，初始化echarts实例
+function main2(course_type)
+    {
+    var myChart = echarts.init(document.getElementById('main2'));
+    option = {
+        title : {
+            text: '课程分布情况',
+            subtext: '来自课程网站数据库',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            x : 'center',
+            y : 'bottom',
+            data:['一级学科核心课','专业核心课','专业普及课','专业研讨课','公共选修课','一级学科普及课']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true,
+                    type: ['pie', 'funnel']
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        series : [
+           
+            {
+                name:'面积模式',
+                type:'pie',
+                radius : [30, 110],
+                center : ['50%', '50%'],
+                roseType : 'area',
+                data:course_type
+            }
+        ]
+    };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);     
+}
+    
+    
+    
+
+
+function main3(coure_date)
+{
+            // 基于准备好的dom，初始化echarts实例
+            var chart = echarts.init(document.getElementById('main3'), 'macarons');
+            /*var myChart = echarts.init(document.getElementById('main3'),'macarons');*/
+    option = {
+        title: {
+            text: '课程时间统计',
+            subtext: '所有课程的时间状态',
+            x:'center',
+            top: 'top'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}课程 : {c} 门"
+        },
+        toolbox: {
+            orient: 'vertical',
+            top: 'center',
+            feature: {
+                mark:{show:true},
+                dataView: {show:true,readOnly: false},
+                restore: {show:true},
+                saveAsImage: {show:true}
+            }
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['周一','周二','周三','周四','周五']
+        },
+        calculable: true,
+        series: [
+            {
+                name: '课程时间图',
+                type: 'funnel',
+                width: '40%',
+                height: '45%',
+                left: '25%',
+                top: '50%',
+                data:coure_date
+            }
+        ]
+    };
+    
+            // 使用刚指定的配置项和数据显示图表。
+            chart.setOption(option);
+          
+}
+
+
+
+
+ 
+
+    </script>
+   
+</div>
+
+

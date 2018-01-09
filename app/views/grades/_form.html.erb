@@ -1,0 +1,101 @@
+<%= form_for @grade, html: {class: 'form-horizontal', role: 'form'}, url: grade_url(id: @grade.id, course_id: @grade.course.id), method: :patch do |f| %>
+    <%= render "shared/error_messages", :object => @grade %>
+
+    
+
+    <div class="form-group">
+      <%= f.label "课程名", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+         <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+             <div class="form-control"><%=@grade.course.name%></div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+      <%= f.label "学生姓名", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+              <div class="form-control"><%=@grade.user.name%></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "学号", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+              <div class="form-control"><%=@grade.user.num%></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "专业", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+              <div class="form-control"><%=@grade.user.major%></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label "培养单位", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+              <div class="form-control"><%=@grade.user.department%></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label "原始成绩", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+              <div class="form-control"><%=@grade.grade%></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-12">
+        
+      <div class="col-sm-4"></div> <%= f.label "成绩录入",class: 'col-sm-2' %> <div class="col-sm-2"></div> <%= f.label "所占比重（输入百分数）",class: 'col-sm-4' %>
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label "平时成绩", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+          <%= f.text_field :grade_h, class: 'form-control', placeholder: "输入平时成绩" %>
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+          <%= f.text_field :grade_hp, class: 'form-control', placeholder: "输入平时成绩所占比重" %>       
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label "考试成绩", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+          <%= f.text_field :grade_e, class: 'form-control', placeholder: "输入考试成绩" %>
+          <div class="input-group-addon"><span class="glyphicon glyphicon-arrow-right"></span></div>
+          <%= f.text_field :grade_ep, class: 'form-control', placeholder: "输入考试成绩所占比重" %>
+        </div>
+      </div>
+    </div>
+    
+ 
+    <%= f.submit '提交', class: "btn btn-success btn-block" %>
+    <%= link_to '取消',grades_path(course_id: @grade.course.id), :method => :get , :class => "btn btn-default btn-block" %>
+
+<% end %>

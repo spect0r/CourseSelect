@@ -1,0 +1,80 @@
+<%= form_for @course, html: {class: 'form-horizontal', role: 'form'} do |f| %>
+    <%= render 'shared/error_messages', :object => @course %>
+    
+    
+       <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "课程名："+@course.name, class: 'col-sm-9' %>
+      </div>
+    </div>
+    
+
+       <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "课程类别："+@course.course_type, class: 'col-sm-9' %>
+      </div>
+    </div>
+    
+
+    <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "授课方式："+@course.teaching_type, class: 'col-sm-9' %>
+      </div>
+    </div>
+
+ <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "考试方式："+@course.exam_type, class: 'col-sm-9' %>
+       
+      </div>
+    </div>
+
+   
+ <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "限选人数：#{@course.limit_num.is_a?(Numeric)?@course.limit_num.to_s+"人":"暂无信息"}", class: 'col-sm-9' %>
+      </div>
+    </div>
+
+     <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "学分：#{@course.course_credit.is_a?(Numeric)?@course.course_credit.to_s+"分":"暂无信息"}", class: 'col-sm-9' %>
+      </div>
+    </div>
+
+<div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "课时：#{@course.course_period.is_a?(Numeric)?@course.course_period.to_s+"分":"暂无信息"}", class: 'col-sm-9' %>
+      </div>
+    </div>
+
+
+ <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "上课教室："+@course.class_room, class: 'col-sm-9' %>
+       
+      </div>
+    </div>
+    
+ <div class="form-group">
+      <%= f.label " ", class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+          <%= f.label "上课时间：#{"周"+@course.course_weekday.to_s+"  " } #{@course.time_begin.to_s+"~"+@course.time_end.to_s+"节" }", class: 'col-sm-9' %>
+       
+      </div>
+    </div>
+
+
+
+     <%= link_to '加入课程',select_course_path(@course), class: "btn btn-success btn-block"  %>
+    <%= link_to '返回',courses_path, class: "btn btn-info btn-block"  %>
+
+<% end %>

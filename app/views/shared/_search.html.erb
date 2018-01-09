@@ -1,0 +1,42 @@
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+           href="#collapseOne">
+          课程搜索
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+
+        <%= form_tag(:action => :search, :method => :post) do %>
+
+              <div class="field">
+                <%= label_tag '课程名'%>
+                <%= text_field_tag :name %>
+              </div>
+
+              <label for="coursetype">课程类型</label>
+              <select name="coursetype">
+                <option value="一级学科核心课">一级学科核心课</option>
+                <option value="公共选修课">公共选修课</option>
+                <option value="一级学科普及课">一级学科普及课</option>
+                <option value="专业普及课">专业普及课</option>
+                <option value="专业研讨课">专业研讨课</option>
+                <option value="专业核心课">专业核心课</option>
+                <option value="公共必修课">公共必修课</option>
+                <option value="公共选修课">公共选修课</option>
+              </select>
+
+            <div class="actions">
+              <%= submit_tag "查询" %>
+            </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
